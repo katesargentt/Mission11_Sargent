@@ -131,3 +131,4 @@
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/Mission11_Sargent.pdb
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/Mission11_Sargent.genruntimeconfig.cache
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/ref/Mission11_Sargent.dll
+/Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/Mission11_Sargent.sourcelink.json
