@@ -1,0 +1,48 @@
+.cart-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  /* Ensure book cards maintain a consistent size */
+  .fixed-card-size {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%; /* Prevent shrinking */
+  }
+  
+  /* Center content on the cart page */
+  .cart-page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .card {
+    padding: 1.5rem;  /* Adjust padding as needed */
+    width: 700px;  /* Ensures cards maintain height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure book cards maintain a consistent size */
+.fixed-card-size {
+    height: 350px;  /* Adjust to a fixed height to prevent shrinking */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Center content on the page */
+.booklist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
