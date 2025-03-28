@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface CartItem {
   bookId: string;
@@ -11,55 +11,53 @@ interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
   removeFromCart: (bookId: string) => void;
+  totalQuantity: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC = ({ children }) => {
   console.log('CartProvider initialized');
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  // Add or update an item in the cart
+  const getStoredCart = () => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  };
+
+  const [cartItems, setCartItems] = useState<CartItem[]>(getStoredCart);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  // Ensure totalQuantity sums up all book quantities in the cart
+  const totalQuantity = cartItems.reduce((sum, item) => sum + (item.quantity || 0), 0);
+
   const addToCart = (book: CartItem) => {
     setCartItems((prevCartItems) => {
-      // Check if the book already exists in the cart
       const existingItemIndex = prevCartItems.findIndex(item => item.bookId === book.bookId);
-      
+
       if (existingItemIndex !== -1) {
-        // Update the quantity of the existing item
-        const updatedCart = prevCartItems.map((item, index) => {
-          if (index === existingItemIndex) {
-            return { ...item, quantity: item.quantity + 1 };
-          }
-          return item;
-        });
-        
-        console.log('Updated Cart with Increased Quantity:', updatedCart); // Logs for debugging
-        return updatedCart;
+        return prevCartItems.map((item, index) =>
+          index === existingItemIndex ? { ...item, quantity: item.quantity + 1 } : item
+        );
       } else {
-        // If it's a new item, add it to the cart
-        const newCart = [...prevCartItems, { ...book, quantity: 1 }];
-        console.log('New Cart:', newCart); // Logs for debugging
-        return newCart;
+        return [...prevCartItems, { ...book, quantity: 1 }];
       }
     });
   };
-  
-  
 
-  // Remove an item from the cart
   const removeFromCart = (bookId: string) => {
     setCartItems((prevItems) => prevItems.filter(item => item.bookId !== bookId));
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, totalQuantity }}>
       {children}
     </CartContext.Provider>
   );
 };
 
-// Hook to use the cart context
 export const useCart = (): CartContextType => {
   const context = useContext(CartContext);
   if (!context) {

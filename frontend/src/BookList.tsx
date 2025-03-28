@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Book } from "./types/Books";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import CartIcon from "./CartIcon";
 import './Cart.css';
 
 function BookList() {
@@ -56,7 +56,7 @@ function BookList() {
 
       {/* Cart Icon in Top Right */}
       <div className="cart-icon" onClick={() => navigate('/cart')}>
-        <FaShoppingCart size={30} />
+        <CartIcon />
       </div>
 
       {/* Category Filter */}
