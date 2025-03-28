@@ -62,33 +62,37 @@ function BookList() {
       {/* Category Filter */}
       <div className="row mb-3">
         <div className="col-md-4">
-          <label>Filter by Category: </label>
-          <select className="form-select" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+            <label>Filter by Category: </label>
+            <select className="form-select" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
             <option value="">All Categories</option>
             {categories.map((category) => (
-              <option key={category} value={category}>{category}</option>
+                <option key={category} value={category}>{category}</option>
             ))}
-          </select>
+            </select>
+            {/* Add a Badge to show the number of books for the selected category */}
+            <span className="badge bg-secondary ms-2">
+            {selectedCategory ? books.filter(book => book.category === selectedCategory).length : 16} Books
+            </span>
         </div>
-
+        
         {/* Sort Dropdown */}
         <div className="col-md-4">
-          <label>Sort by: </label>
-          <select className="form-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            <label>Sort by: </label>
+            <select className="form-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
             <option value="title">Title</option>
-          </select>
+            </select>
         </div>
 
         {/* Results per Page */}
         <div className="col-md-4">
-          <label>Results per page:</label>
-          <select className="form-select" value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
+            <label>Results per page:</label>
+            <select className="form-select" value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
-          </select>
+            </select>
         </div>
-      </div>
+        </div>
 
       {/* Card Deck (new Bootstrap feature) */}
       <div className="row row-cols-1 row-cols-md-3 g-4">
