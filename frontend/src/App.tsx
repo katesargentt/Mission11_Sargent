@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartPage from './CartPage';
 import BookList from './BookList';
-import { CartProvider } from './CartContext'; // Import CartProvider
+import { CartProvider } from './CartContext';// Import CartProvider
 import AdminBooksPage from './AdminBooksPage';
 
 const App: React.FC = () => {

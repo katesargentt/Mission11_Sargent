@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
-import { Book } from "./types/Books";
-import { useCart } from "./CartContext";
-import { useNavigate } from "react-router-dom";
-import CartIcon from "./CartIcon";
+import { useEffect, useState } from 'react';
+import { Book } from './types/Books';
+import { useCart } from './CartContext';
+import { useNavigate } from 'react-router-dom';
+import CartIcon from './CartIcon';
 import './Cart.css';
+import { CartItem } from './CartContext';
 
 function BookList() {
   const [books, setBooks] = useState<Book[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [pageSize, setPageSize] = useState<number>(5);
   const [pageNum, setPageNum] = useState<number>(1);
   const [totalBooks, setTotalBooks] = useState<number>(0);
-  const [sortBy, setSortBy] = useState<string>("title");
+  const [sortBy, setSortBy] = useState<string>('title');
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const response = await fetch("http://localhost:5000/api/Books/categories");
+      const response = await fetch(
+        'http://localhost:5000/api/Books/categories'
+      );
       const data = await response.json();
       setCategories(data);
     };
@@ -27,26 +30,39 @@ function BookList() {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const categoryFilter = selectedCategory ? `&category=${selectedCategory}` : "";
-      
+      const categoryFilter = selectedCategory
+        ? `&category=${selectedCategory}`
+        : '';
+
       const response = await fetch(
         `http://localhost:5000/api/Books?pageSize=${pageSize}&pageNum=${pageNum}${categoryFilter}`
       );
       const data = await response.json();
-    
+
       if (data && data.books && Array.isArray(data.books)) {
         setBooks(data.books);
         setTotalBooks(data.totalBooks);
       } else {
-        console.error("Fetched data is not in the expected format:", data);
+        console.error('Fetched data is not in the expected format:', data);
       }
     };
-  
+
     fetchBooks();
   }, [pageSize, pageNum, sortBy, selectedCategory]);
 
+  /**
+   * Handle adding a book to the cart by calling the addToCart function
+   * in the CartContext, and then navigating to the cart page.
+   * @param {Book} book - the book to add to the cart
+   */
   const handleAddToCart = (book: Book) => {
-    addToCart(book);
+    const cartItem: CartItem = {
+      bookId: book.bookId.toString(),
+      title: book.title,
+      price: book.price,
+      quantity: 1,
+    };
+    addToCart(cartItem);
     navigate('/cart');
   };
 
@@ -62,37 +78,55 @@ function BookList() {
       {/* Category Filter */}
       <div className="row mb-3">
         <div className="col-md-4">
-            <label>Filter by Category: </label>
-            <select className="form-select" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+          <label>Filter by Category: </label>
+          <select
+            className="form-select"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
             <option value="">All Categories</option>
             {categories.map((category) => (
-                <option key={category} value={category}>{category}</option>
+              <option key={category} value={category}>
+                {category}
+              </option>
             ))}
-            </select>
-            {/* Add a Badge to show the number of books for the selected category */}
-            <span className="badge bg-secondary ms-2">
-            {selectedCategory ? books.filter(book => book.category === selectedCategory).length : 16} Books
-            </span>
+          </select>
+          {/* Add a Badge to show the number of books for the selected category */}
+          <span className="badge bg-secondary ms-2">
+            {selectedCategory
+              ? books.filter((book) => book.category === selectedCategory)
+                  .length
+              : 16}{' '}
+            Books
+          </span>
         </div>
-        
+
         {/* Sort Dropdown */}
         <div className="col-md-4">
-            <label>Sort by: </label>
-            <select className="form-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <label>Sort by: </label>
+          <select
+            className="form-select"
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+          >
             <option value="title">Title</option>
-            </select>
+          </select>
         </div>
 
         {/* Results per Page */}
         <div className="col-md-4">
-            <label>Results per page:</label>
-            <select className="form-select" value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
+          <label>Results per page:</label>
+          <select
+            className="form-select"
+            value={pageSize}
+            onChange={(e) => setPageSize(Number(e.target.value))}
+          >
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
-            </select>
+          </select>
         </div>
-        </div>
+      </div>
 
       {/* Card Deck (new Bootstrap feature) */}
       <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -113,7 +147,10 @@ function BookList() {
                     Number of Pages: {book.pageCount} <br />
                     Price: ${book.price}
                   </p>
-                  <button onClick={() => handleAddToCart(book)} className="btn btn-primary w-100">
+                  <button
+                    onClick={() => handleAddToCart(book)}
+                    className="btn btn-primary w-100"
+                  >
                     Add to Cart
                   </button>
                 </div>

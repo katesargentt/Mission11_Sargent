@@ -5,6 +5,7 @@ import Pagination from './Pagination';
 import NewBookForm from './NewBookForm';
 import EditBookForm from './EditBookForm';
 
+
 const AdminBooksPage = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
@@ -72,7 +73,7 @@ const AdminBooksPage = () => {
         <NewBookForm
           onSuccess={() => {
             setShowForm(false);
-            fetchBooks(pageSize, currentPage).then((data) =>
+            fetchBooks(pageSize, currentPage, []).then((data) =>
               setBooks(data.books)
             );
           }}

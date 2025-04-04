@@ -30,9 +30,12 @@ const EditBookForm = ({ book, onSuccess, onCancel }: EditBookFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const updatedBook = await updateBook(bookId, formData); // Pass bookId separately
-    onSuccess(updatedBook); // Pass the updated book data to the onSuccess callback
+    const updatedData = { ...book, ...formData }; // Merge to get a complete Book
+    const updatedBook = await updateBook(book.bookId, updatedData);
+    console.log(formData);
+    onSuccess(updatedBook);
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>
