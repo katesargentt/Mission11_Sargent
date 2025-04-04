@@ -20,7 +20,7 @@ function BookList() {
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await fetch(
-        'http://localhost:5000/api/Books/categories'
+        'https://bookstore-project-mission-sargent-backend-dvg5ehhwhwhdfhbz.eastus-01.azurewebsites.net/api/Books/categories'
       );
       const data = await response.json();
       setCategories(data);
@@ -35,7 +35,7 @@ function BookList() {
         : '';
 
       const response = await fetch(
-        `http://localhost:5000/api/Books?pageSize=${pageSize}&pageNum=${pageNum}${categoryFilter}`
+        `https://bookstore-project-mission-sargent-backend-dvg5ehhwhwhdfhbz.eastus-01.azurewebsites.net/api/Books?pageSize=${pageSize}&pageNum=${pageNum}${categoryFilter}`
       );
       const data = await response.json();
 
