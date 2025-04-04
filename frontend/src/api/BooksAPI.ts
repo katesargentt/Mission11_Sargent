@@ -5,7 +5,7 @@ interface FetchBooksResponse {
   totalBooks: number;
 }
 
-const API_URL = 'http://localhost:5000/api/books';
+const API_URL = 'https://bookstore-project-mission-sargent-backend-dvg5ehhwhwhdfhbz.eastus-01.azurewebsites.net/api/Books';
 
 export const fetchBooks = async (
   pageSize: number,
