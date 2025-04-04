@@ -15,14 +15,14 @@ builder.Services.AddDbContext<BookstoreContext>(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        policy =>
-        {
-            policy.AllowAnyOrigin()
+    options.AddPolicy("AllowReactApp",
+        policy => {
+            policy.WithOrigins("http://localhost:3000")
                 .AllowAnyMethod()
                 .AllowAnyHeader();
         });
 });
+
 
 var app = builder.Build();
 
@@ -33,7 +33,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(x => x.WithOrigins("http://localhost:3000"));
+app.UseCors(policy => 
+    policy.WithOrigins("http://localhost:3000") // Allow frontend origin
+        .AllowAnyMethod() // Allow all HTTP methods
+        .AllowAnyHeader() // Allow all headers
+        .AllowCredentials()); // Allow cookies/auth if needed
 
 app.MapControllers();
 

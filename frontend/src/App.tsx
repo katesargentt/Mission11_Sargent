@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CartPage from './CartPage';
 import BookList from './BookList';
 import { CartProvider } from './CartContext'; // Import CartProvider
+import AdminBooksPage from './AdminBooksPage';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
           <Route path="/" element={<BookList />} />
           <Route path="/books" element={<BookList />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/adminbooks" element={<AdminBooksPage />} />
         </Routes>
       </Router>
     </CartProvider>

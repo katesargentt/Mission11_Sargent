@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "0OcwhVrmQtQYudVKcFRnafO5otCAz69LizR+Sizavaw=",
+  "Hash": "8MfuN4YYK6r1X/dJklIbRc9Cz03K7tjbEz4XVO7LpNc=",
   "Source": "Mission11_Sargent",
   "BasePath": "_content/Mission11_Sargent",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

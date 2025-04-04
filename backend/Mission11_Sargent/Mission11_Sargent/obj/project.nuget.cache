@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "H7AxOC05p8I=",
+  "dgSpecHash": "sdbhRZ9o/XA=",
   "success": true,
   "projectFilePath": "/Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/Mission11_Sargent.csproj",
   "expectedPackageFiles": [
@@ -54,7 +54,10 @@
     "/Users/katesargent/.nuget/packages/system.reflection.metadata/6.0.1/system.reflection.metadata.6.0.1.nupkg.sha512",
     "/Users/katesargent/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/katesargent/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
-    "/Users/katesargent/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512"
+    "/Users/katesargent/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
+    "/Users/katesargent/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "/Users/katesargent/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
+    "/Users/katesargent/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.13/microsoft.netcore.app.host.osx-arm64.8.0.13.nupkg.sha512"
   ],
   "logs": []
 }
