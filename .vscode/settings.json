@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/6e666e2a-6d8e-4cc0-a97c-b7e4b9e30ab3/resourceGroups/appsvc_windows_eastus/providers/Microsoft.Web/sites/bookstore-project-mission-sargent-backend",
+  "appService.deploySubpath": "backend/Mission11_Sargent/Mission11_Sargent/publish"
+}

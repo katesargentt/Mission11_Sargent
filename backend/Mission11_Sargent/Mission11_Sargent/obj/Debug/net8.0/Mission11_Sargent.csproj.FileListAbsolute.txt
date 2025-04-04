@@ -132,6 +132,12 @@
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/Mission11_Sargent.genruntimeconfig.cache
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/ref/Mission11_Sargent.dll
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/Mission11_Sargent.sourcelink.json
+/Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/bin/Debug/net8.0/Bookstore.sqlite
+/Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/bin/Debug/net8.0/publish/web.config
+/Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/bin/Debug/net8.0/publish/appsettings.Development.json
+/Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/bin/Debug/net8.0/publish/appsettings.json
+/Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/bin/Debug/net8.0/publish/Mission11_Sargent.deps.json
+/Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/bin/Debug/net8.0/publish/Mission11_Sargent.runtimeconfig.json
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/bin/Debug/net8.0/Mission11_Sargent.staticwebassets.endpoints.json
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/staticwebassets.build.endpoints.json
 /Users/katesargent/RiderProjects/Mission11_Sargent/backend/Mission11_Sargent/Mission11_Sargent/obj/Debug/net8.0/staticwebassets/msbuild.Mission11_Sargent.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
